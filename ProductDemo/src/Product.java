@@ -13,6 +13,7 @@ public class Product {
 
 	// we wrote this one in class
 	public Product(String inCode, String inDesc, double inPrice) {
+		System.out.println("Product constructor w/ 3 parms called");
 		code = inCode;
 		description = inDesc;
 		price = inPrice;
@@ -57,7 +58,14 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [code=" + code + ", description=" + description + ", price=" + price + "]";
+	}
 	
-	
+	public static void aStaticMethod() {
+		System.out.println("an arbitrary static method");
+	}
 	
 }
