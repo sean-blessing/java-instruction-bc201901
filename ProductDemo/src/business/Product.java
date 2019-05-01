@@ -1,5 +1,7 @@
+package business;
+import db.ProductReader;
 
-public class Product {
+public class Product implements ProductReader{
 
 	private String code;
 	private String description;
@@ -66,6 +68,24 @@ public class Product {
 	
 	public static void aStaticMethod() {
 		System.out.println("an arbitrary static method");
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+
+	@Override
+	public Product get(String code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
