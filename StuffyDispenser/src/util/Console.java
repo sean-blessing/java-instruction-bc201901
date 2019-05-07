@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 
 public class Console {
+	
 	private static Scanner sc = new Scanner(System.in);
+	
     public static int getInt(String prompt) {
         int i = 0;
         boolean isValid = false;
