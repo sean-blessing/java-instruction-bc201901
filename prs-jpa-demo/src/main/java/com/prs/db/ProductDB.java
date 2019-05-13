@@ -7,33 +7,33 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import com.prs.business.User;
+import com.prs.business.Product;
 
-public class UserDB {
+public class ProductDB {
 	
-	public static List<User> getAll() {
-		List<User> users = null;
+	public static List<Product> getAll() {
+		List<Product> products = null;
 		
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		
 		try {
-			Query q = em.createQuery("Select u from User u");
-			users = q.getResultList();
+			Query q = em.createQuery("Select p from Product p");
+			products = q.getResultList();
 		}
 		finally {
 			em.close();
 		}
-		return users;
+		return products;
 		
 	}
-	public static boolean add(User u) {
+	public static boolean add(Product p) {
 		boolean success = false;
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction et = em.getTransaction();
 		
 		try {
 			et.begin();
-			em.persist(u);
+			em.persist(p);
 			//em.flush();
 			et.commit();
 			success = true;
