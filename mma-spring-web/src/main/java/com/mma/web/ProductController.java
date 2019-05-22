@@ -44,6 +44,22 @@ public class ProductController {
 		return jr;
 	}
 	
+	@GetMapping("")
+	public JsonResponse getByCode(@RequestParam String code) {
+		JsonResponse jr = null;
+		try {
+			Optional<Product> p = productRepo.findByCode(code);
+			if (p.isPresent())
+				jr = JsonResponse.getInstance(p);
+			else 
+				jr = JsonResponse.getInstance("No product found for code: "+code);
+		}
+		catch (Exception e) {
+			jr = JsonResponse.getInstance(e);
+		}
+		return jr;
+	}
+
 	@PostMapping("/")
 	public JsonResponse add(@RequestBody Product p) {
 		JsonResponse jr = null;
@@ -98,4 +114,6 @@ public class ProductController {
 		}
 		return jr;
 	}
+	
+	
 }
